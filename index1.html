@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Marketing Mix (4Ps) – Amal Jyothi College of Engineering</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank"
+   class="nav-btn">
+   View Project on GitHub
+</a>
+
+
+<style>
+:root{
+ --primary:#06345c;
+ --primary-dark:#02213c;
+ --accent:#f5a623;
+ --bg-light:#f3f5f9;
+ --text-main:#1b2430;
+ --text-muted:#191a2c;
+ --border-soft:#e0e5ef;
+
+ /* added (non-conflicting) */
+ --dark:#0b1c2d;
+ --light:#f4f6f9;
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+body.gradient-bg{
+  background:
+    linear-gradient(
+      120deg,
+      #f8fbff,
+      #e6f0ff,
+      #ffffff,
+      #eaf4ff
+    );
+  background-size:300% 300%;
+  animation:globalGradientMove 20s ease infinite;
+}
+
+
+@keyframes calmWave{
+ to{background-position:200% 200%;}
+}
+
+body{
+ font-family: 'Montserrat', sans-serif;
+ color:var(--text-main);
+ line-height:1.7;
+ -webkit-font-smoothing:antialiased;
+}
+
+/* Headings */
+h1,h2,h3,h4{
+ font-family:'Playfair Display',serif;
+ color:var(--primary-dark);
+ letter-spacing:.02em;
+}
+
+/* Scroll progress */
+.scroll-progress{
+ position:fixed;
+ top:0;
+ left:0;
+ height:4px;
+ width:0;
+ background:linear-gradient(90deg,var(--accent),var(--primary));
+ z-index:2000;
+}
+
+.nav-btn,
+
+.brand-btn{
+  background:#173b63;           
+  border-radius:999px;
+  padding:8px 18px 8px 10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand-btn img{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#ffffff;
+  padding:4px;
+  flex-shrink:0;
+  box-shadow:0 2px 6px rgba(0,0,0,0.25);
+}
+
+
+.nav-btn:hover,
+.brand-btn:hover{
+  background:#0d2e4f;
+  color:#ffffff;
+  transform:translateY(-1px);
+}
+
+
+/* Navbar */
+.navbar{
+  backdrop-filter:blur(16px);
+  background:#ffffff !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
+}
+
+.navbar-brand span{
+  font-weight:600;
+  letter-spacing:.04em;
+}
+
+/* Navigation buttons */
+.nav-btn{
+  display:inline-block;
+  padding:7px 14px;
+  background:#183c64;
+  color:#ffffff !important;
+  font-size:0.9rem;
+  font-weight:500;
+  border-radius:15px;
+  text-decoration:none;
+  transition:background-color .2s ease, transform .2s ease;
+}
+
+.nav-btn:hover{
+  background:#103251;
+  transform:translateY(-1px);
+}
+
+/* Bootstrap nav-link fallback (if any remain) */
+.nav-link{
+  color:var(--text-muted) !important;
+  font-weight:500;
+  border-radius:999px;
+  transition:background-color .2s ease, color .2s ease;
+}
+
+.nav-link:hover{
+  background:rgba(6,52,92,.06);
+  color:var(--primary-dark) !important;
+}
+
+/* Hero */
+.hero{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+}
+
+.hero::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:
+ linear-gradient(135deg,rgba(6, 46, 57, 0.738),rgba(13, 47, 76, 0.629)),
+ url("campus1.jpg") center/cover no-repeat;
+ filter:blur(0.5px);
+ transform:scale(1.05);
+}
+
+.hero-content{
+ position:relative;
+ z-index:1;
+}
+
+.hero-card{
+ background:rgba(255,255,255,.18);
+ backdrop-filter:blur(18px);
+ padding:3rem 3.5rem;
+ border-radius:22px;
+ box-shadow:0 25px 60px rgba(0,0,0,.35);
+ animation:heroFade 1.2s ease forwards;
+}
+
+.hero-title{
+ font-size:3.1rem;
+ font-family:"Palatino Linotype",serif;
+ font-weight:700;
+ background:linear-gradient(90deg,#cfe9ff,#ffffff);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+}
+
+@keyframes heroFade{
+ from{opacity:0;transform:translateY(22px)}
+ to{opacity:1;transform:none}
+}
+
+@keyframes globalGradientMove{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Sections */
+section{
+ padding:80px 0;
+ background:rgba(255,255,255,.96);
+}
+
+/* Text */
+h2{
+ color:var(--primary);
+ font-weight:700;
+ margin-bottom:1.5rem;
+}
+
+p{
+ color:var(--text-muted);
+ font-size:.97rem;
+}
+
+/* Images */
+.image-space{
+ height:260px;
+ width:100%;
+ border-radius:16px;
+ overflow:hidden;
+ background:#dee2e6;
+ box-shadow:0 12px 30px rgba(15,23,42,.18);
+}
+
+.image-space img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+#place .image-space{
+ height:320px;
+}
+
+/* Tables */
+table{
+ width:100%;
+ border-collapse:collapse;
+ margin-top:1.2rem;
+ background:#fff;
+ border-radius:14px;
+ overflow:hidden;
+ box-shadow:0 10px 28px rgba(15,23,42,.06);
+}
+
+th,td{
+ padding:.9rem 1.1rem;
+ border-bottom:1px solid var(--border-soft);
+ text-align:left;
+ font-size:.92rem;
+}
+
+th{
+ background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+ color:#fff;
+ font-weight:600;
+}
+
+tr:last-child td{border-bottom:none;}
+
+/* Analysis */
+#analysis{
+ background:rgba(255,255,255,.96);
+}
+
+.analysis-image{
+ height:100%;
+ min-height:360px;
+ border-radius:20px;
+ overflow:hidden;
+ box-shadow:0 16px 36px rgba(15,23,42,.25);
+}
+
+.analysis-image img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+/* Reveal animation */
+.reveal{
+ opacity:0;
+ transform:translateY(26px);
+ transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.active{
+ opacity:1;
+ transform:none;
+}
+
+/* Responsive */
+@media (max-width:768px){
+  /* Navbar */
+  .brand-btn span{
+    font-size:0.8rem;
+  }
+
+  .nav-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  /* Hero */
+  .hero-title{
+    font-size:2.25rem;
+  }
+
+  .hero-card{
+    padding:2rem;
+  }
+
+  /* Analysis */
+  .analysis-image{
+    min-height:260px;
+  }
+}
+
+@media (max-width:480px){
+  .navbar-brand span{
+    font-size:.85rem;
+  }
+}
+.footer-bar{
+  background:var(--primary-dark);
+  padding:18px 0;
+}
+
+.footer-content{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.footer-left,
+.footer-right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.footer-center{
+  color:rgba(255,255,255,.9);
+  font-size:0.95rem;
+  font-weight:500;
+  text-align:center;
+}
+
+.footer-icon img{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#ffffff;
+  padding:6px;
+  object-fit:contain;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.footer-icon img:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+}
+
+@media(max-width:768px){
+  .footer-content{
+    flex-direction:column;
+    gap:14px;
+  }
+}
+
+</style>
+
+</head>
+
+<body class="gradient-bg">
+<div class="scroll-progress"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+
+    <!-- College name as BUTTON (goes to top) -->
+    <a href="#top" class="nav-btn brand-btn d-flex align-items-center">
+    <img src="student-cartoon-png-clipart-thumbnail.jpg" width="36" class="me-2">
+    <span>Amal Jyothi College of Engineering (AUTONOMOUS)</span>
+</a>
+
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-2">
+
+        <li class="nav-item">
+          <a class="nav-btn" href="#intro">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-btn" href="#product">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-btn" href="#price">Price</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-btn" href="#place">Place</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-btn" href="#promotion">Promotion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-btn" href="#conclusion">Conclusion</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<img src="logo-light-ajce.png" class="mb-4" style="max-width:420px;height:auto">
+<div class="hero-card">
+<h1 class="hero-title">Strategic Marketing Mix (4Ps)<br class="d-none d-md-block">Case Study</h1>
+</div>
+</div>
+</section>
+
+<section>
+    <div class="container text-center">
+        <h3 class="fw-semibold">
+            KERALA'S LARGEST INFRASTRUCTURE FOR ENGINEERING EDUCATION WITH 7 NBA ACCREDITED PROGRAMS
+        </h3>
+    </div>
+</section>
+
+<section id="intro" class="reveal">
+<div class="container">
+<h2>Introduction</h2>
+
+<p>Amal Jyothi College of Engineering (Autonomous), Kanjirapally, is the first engineering college in Kerala to obtain NAAC accreditation with A grade, and the first new generation engineering college in the State to secure the prestigious NBA accreditation for prime departments. Amal Jyothi is approved by the All India Council for Technical Education (AICTE), New Delhi. It is affiliated to APJ Abdul Kalam Technological University, Thiruvananthapuram since 2015. During the years 2001-2014, the College was affiliated to Mahatma Gandhi University, Kottayam. The main features of the College comprise world-class infrastructure, top-flight faculty, high pass percentage, excellent placement record, unique student projects, first-rate innovation & entrepreneurship ventures and a flourishing Start-ups Valley on the campus.</p>
+
+<p>This webpage presents a structured Marketing Mix (4Ps) case study analyzing how the college designs its academic offerings, pricing approach, service delivery mechanisms, and promotional strategies to attract, retain, and satisfy students.</p>
+
+<div class="row g-4 mt-4">
+<div class="col-md-4"><div class="image-space"><img src="campus.jpg"></div></div>
+<div class="col-md-4"><div class="image-space"><img src="lab.webp"></div></div>
+<div class="col-md-4"><div class="image-space"><img src="hostel.jpg"></div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+    <h2>Why Choose Amal Jyothi?</h2>
+    <p>
+        65-acre campus with 1.26 lakh square meter built-up area<br>
+        13 Departments, 21 Programs, 22 Industry Tie-ups, Technology Business Incubator with 32 Startups<br>
+        Number of Students: 3075, Number of Staff: 361<br>
+        Hostel Capacity: Ladies Hostel – 1200, Gents Hostel – 1300<br>
+        Internet Connectivity: 2.04 Gbps, Number of Computers: 1400+<br>
+        Power infrastructure including a 1120 KVA power plant and a 200 kW solar power plant
+    </p>
+</div>
+</section>
+
+<section id="product" class="reveal">
+<div class="container">
+<h2>Product: Academic and Non-Academic Offerings</h2>
+
+<p>
+The core product of Amal Jyothi College of Engineering is its comprehensive portfolio of academic programs. At the undergraduate level, the institution offers B.Tech programs with a total intake of 840 seats across disciplines such as Computer Science and Engineering, Artificial Intelligence and Data Science, Electronics and Communication Engineering, Mechanical Engineering, Civil Engineering, Electrical and Electronics Engineering, Chemical Engineering, Food Technology, and specialized programs including Cyber Security and Automobile Engineering.
+</p>
+
+<p>
+Postgraduate offerings include M.Tech programs in areas such as Structural Engineering, Environmental Engineering, Energy Systems, Electric Vehicle Technology, VLSI Design and Embedded Systems, along with Master of Computer Applications and doctoral programs in Engineering and Sciences. These programs are supported by qualified faculty actively engaged in funded research, consultancy, and industry collaboration.
+</p>
+
+<p>
+In addition to academics, non-academic components strengthen the overall product offering. The 65-acre campus houses modern laboratories, a central library, advanced computing facilities, hostels accommodating over 2500 students, sports amenities, and high-speed internet connectivity. Student support services include counselling, placement training, clubs, innovation cells, and a Technology Business Incubator known as Startups Valley.
+</p>
+
+<p>
+The institution comprises 13 academic departments offering more than 21 programs, including B.Tech, M.Tech, BCA, MCA, BBA, and PhD programs. Key streams include Computer Science, Artificial Intelligence, Data Science, Cyber Security, Electronics, Mechanical, Civil, and Electrical Engineering.
+</p>
+
+<p>
+Infrastructure support includes a digital library, 1400+ computers, 2.04 Gbps internet connectivity, industry tie-ups, research centers, and innovation laboratories, which collectively enhance experiential and outcome-based learning.
+</p>
+
+<p>
+Together, these academic and non-academic offerings address students’ academic, professional, and personal development needs, creating strong perceived value.
+</p>
+
+
+<div class="row g-4 mt-4">
+<div class="col-md-4"><div class="image-space"><img src="logoaessas.png"></div></div>
+<div class="col-md-4"><div class="image-space"><img src="4.webp"></div></div>
+<div class="col-md-4"><div class="image-space"><img src="3.webp"></div></div>
+</div>
+
+<p class="mt-4">Supporting facilities such as advanced laboratories, central library, hostels, sports amenities, high-speed internet connectivity, placement cell, and Startups Valley TBI enhance the overall learning experience. Refer standard textbook diagram for augmented product model.</p>
+</div>
+</section>
+
+<section id="price" class="reveal">
+<div class="container">
+<h2>Price: Fee Structure and Perceived Value</h2>
+<p>
+        The pricing strategy of Amal Jyothi College of Engineering is competitive and aligned with similar institutions
+        in the region. The college follows a value-based pricing approach where fees are
+        justified by infrastructure quality, faculty expertise, and placement opportunities.
+    </p>
+<p>The college follows regulatory norms prescribed by government and university authorities. Tuition fees are comparable with other self-financing engineering colleges in Kerala. Additional charges include hostel fees, examination fees, transport, and laboratory-related expenses.</p>
+
+<table>
+<tr><th>Fee Component</th><th>Description</th></tr>
+<tr><td>Tuition Fee</td><td>Regulated fee structure as per university and government norms</td></tr>
+<tr><td>Hostel Charges</td><td>Separate fees for gents and ladies hostels with modern facilities</td></tr>
+<tr><td>Other Costs</td><td>Examination, laboratory usage, transport, and student services</td></tr>
+</table>
+
+<table>
+<tr><th>Program</th><th>Approx. Annual Fee</th></tr>
+<tr><td>B.Tech</td><td>₹1,25,000</td></tr>
+<tr><td>M.Tech</td><td>₹95,000</td></tr>
+<tr><td>BCA / MCA</td><td>₹75,000</td></tr>
+<tr><td>BBA Honours</td><td>₹70,000</td></tr>
+</table>
+<p>
+Additional costs include hostel fees (~₹60,000/year), exam fees, and training programs. Scholarships, fee waivers, and installment plans support affordability. The pricing is justified by infrastructure quality, placements, and academic outcomes.
+</p>
+<p>Financial support is provided through scholarships, tuition fee waiver schemes, and installment-based payments. From a student perspective, the perceived value is influenced by academic quality, placement outcomes, infrastructure, and exposure to industry and entrepreneurship rather than fee level alone.</p>
+</div>
+</section>
+
+<section id="place" class="reveal">
+<div class="container">
+<h2>Place: Location and Service Delivery</h2>
+
+<p>The college is located at Kanjirappally in Kottayam district, providing a calm academic setting while remaining accessible through road transport and college bus routes. Academic services are delivered through physical classrooms, well-equipped laboratories, and digital platforms such as learning management systems and online portals.</p>
+
+<p>The institution follows primarily offline learning with digital support for content distribution, assessments, and communication. Centralized campus layout, fixed schedules, and online access to academic resources improve service efficiency and student convenience.</p>
+
+<div class="mt-5 rounded-3 overflow-hidden shadow" style="height:420px; background:#dee2e6;">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.8266075522797!2d76.82088187419139!3d9.528637080969705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b063626ed32c771%3A0xff305e1affdbb4b4!2sAmal%20Jyothi%20College%20of%20Engineering%20Autonomous!5e1!3m2!1sen!2sin!4v1768489888189!5m2!1sen!2sin"
+        class="w-100 h-100 border-0"
+        style="border:1px;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<div class="row g-4 mt-4">
+<div class="col-md-6"><div class="image-space"><img src="college map.jpg"></div></div>
+<div class="col-md-6"><div class="image-space"><img src="aerial.jpg"></div></div>
+</div>
+</div>
+</section>
+
+<section id="promotion" class="reveal">
+<div class="container">
+<h2>Promotion: Communication and Branding</h2>
+<p>
+        The college uses a mix of traditional and digital promotional strategies to reach
+        prospective students. Advertising is done through newspapers, educational fairs,
+        hoardings, and social media platforms.
+</p>
+<p>Promotional activities of Amal Jyothi College of Engineering focus on institutional credibility and academic achievements. The college maintains an official website, active social media presence, and YouTube content showcasing campus life, placements, and academic events.</p>
+<p>Participation in educational fairs, institutional events, technical fests, and strong word-of-mouth from alumni and current students contribute to brand visibility. Accreditations such as NAAC A grade, NBA accreditation, NIRF participation, and ARIIA recognition strengthen promotional credibility.</p>
+</div>
+</section>
+
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-center gap-4 mt-4">
+
+      <a href="https://www.ajce.in/" target="_blank"
+         class="d-flex align-items-center gap-2 px-4 py-2 rounded-pill shadow-sm text-decoration-none"
+         style="background:#173b63;color:#ffffff;">
+        <img src="ajcelogo.jpg" alt="AJCE Website" width="28" height="28"
+             style="border-radius:50%;background:#fff;padding:4px;">
+        <span>Visit AJCE Official Website</span>
+      </a>
+
+      <a href="https://www.youtube.com/@amaljyothicollegeofengineering" target="_blank"
+         class="d-flex align-items-center gap-2 px-4 py-2 rounded-pill shadow-sm text-decoration-none"
+         style="background:#173b63;color:#ffffff;">
+        <img src="yt.jpg" alt="AJCE YouTube" width="28" height="28"
+             style="border-radius:50%;background:#fff;padding:4px;">
+        <span>Visit YouTube Channel</span>
+      </a>
+
+      <a href="https://www.instagram.com/ajce.in/" target="_blank"
+         class="d-flex align-items-center gap-2 px-4 py-2 rounded-pill shadow-sm text-decoration-none"
+         style="background:#173b63;color:#ffffff;">
+        <img src="insta.jpg" alt="AJCE Instagram" width="28" height="28"
+             style="border-radius:50%;background:#fff;padding:4px;">
+        <span>Visit Instagram</span>
+      </a>
+
+      <a href="https://www.facebook.com/amaljyothicollege/" target="_blank"
+         class="d-flex align-items-center gap-2 px-4 py-2 rounded-pill shadow-sm text-decoration-none"
+         style="background:#173b63;color:#ffffff;">
+        <img src="fb.png" alt="AJCE Facebook" width="28" height="28"
+             style="border-radius:50%;background:#fff;padding:4px;">
+        <span>Visit Facebook</span>
+      </a>
+    </div>
+  </div>
+<p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<section id="analysis" class="reveal">
+<div class="container">
+<div class="row align-items-center g-5">
+<div class="col-md-7">
+
+<h2>Analysis – Strengths & Weaknesses</h2>
+    
+<h3>Strengths</h3>
+    <ul>
+        <li>Comprehensive academic programs and infrastructure</li>
+        <li>Affordable fee structure with financial support options</li>
+        <li>Strong placement and skill development focus</li>
+        <li>Effective digital promotion and branding</li>
+    </ul>
+
+
+    <h3>Weaknesses</h3>
+    <ul>
+        <li>Limited international collaborations</li>
+        <li>Need for more industry-integrated certifications</li>
+        <li>Promotion can be strengthened in rural areas</li>
+    </ul>
+</div>
+<div class="col-md-5">
+<div class="analysis-image">
+<img src="ajcestrength.webp">
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="conclusion" class="reveal">
+<div class="container">
+<h2>Suggestions and Conclusion</h2>
+
+<p>
+Expanding international collaborations, strengthening online program offerings, and increasing digital marketing outreach can further enhance the effectiveness of the marketing mix. The college applies the 4Ps in a structured and balanced manner, resulting in strong academic delivery, institutional stability, and positive student outcomes.
+</p>
+
+<p>
+Overall, Amal Jyothi College of Engineering demonstrates an effective marketing mix that supports student attraction, retention, and long-term value creation. With focused improvements in global engagement and branding initiatives, the institution can further strengthen its competitive position and future growth.
+</p>
+
+</div>
+</section>
+
+<footer class="footer-bar">
+  <div class="container footer-content">
+
+    <div class="footer-left">
+      <a href="https://www.ajce.in/" target="_blank" class="footer-icon">
+        <img src="ajcelogo.jpg" alt="AJCE Official Website">
+      </a>
+
+      <a href="https://www.youtube.com/@amaljyothicollegeofengineering" target="_blank" class="footer-icon">
+        <img src="yt.jpg" alt="AJCE YouTube">
+      </a>
+    </div>
+
+    <div class="footer-center">
+      © Amal Jyothi College of Engineering
+    </div>
+
+    <div class="footer-right">
+      <a href="https://www.instagram.com/ajce.in/" target="_blank" class="footer-icon">
+        <img src="insta.jpg" alt="AJCE Instagram">
+      </a>
+
+      <a href="https://www.facebook.com/amaljyothicollege/" target="_blank" class="footer-icon">
+        <img src="fb.png" alt="AJCE Facebook">
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+window.addEventListener("scroll",()=>{
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+    const progress =
+        (window.scrollY / scrollHeight) * 100;
+    document.querySelector(".scroll-progress").style.width =
+        progress + "%";
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+    const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("active");
+            }
+        });
+    },{threshold:0.15});
+
+    document.querySelectorAll(".reveal")
+        .forEach(el=>observer.observe(el));
+});
+</script>
+
+</body>
+</html>
